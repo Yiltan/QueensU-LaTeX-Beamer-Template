@@ -1,0 +1,93 @@
+\ProvidesPackage{queensu}
+
+% For correct colours and fonts see:
+% https://www.queensu.ca/sites/default/files/assets/pages/QU-Visual-Identity-Guide-2019.pdf
+
+\usefonttheme{professionalfonts}
+\usepackage{mathpazo} % or: {newpxtext,newpxmath}
+\renewcommand\familydefault{\rmdefault}
+
+% Hide the beamer navigation symbols
+\beamertemplatenavigationsymbolsempty
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create the title page and background
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\queensutitlepage}
+{
+  {
+    \setbeamertemplate{footline}{}
+    \frame{\titlepage}
+  }
+
+  \addtocounter{framenumber}{-1}
+  \setbeamertemplate{background canvas}
+  {
+    \includegraphics[width=\paperwidth,height=\paperheight]{templates/QU_PPT_template_\aspectratio.pdf}
+  }
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create the main presentation background page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{background canvas}{
+  \includegraphics[width=\paperwidth,height=\paperheight]{templates/QU_PPT_template_curves_\aspectratio.pdf}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define the colors used by Queens University
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{Qred}{cmyk}{0.05, 1.00, 0.71, 0.22}
+\definecolor{Qblue}{cmyk}{1.00, 0.68, 0.08, 0.52}
+\definecolor{Qgold}{cmyk}{0.00, 0.27, 1.00, 0.00}
+\definecolor{Qgreen}{cmyk}{0.96, 0.00, 0.88, 0.01}
+\definecolor{Qbrown}{cmyk}{0.13, 0.53, 0.68, 0.40}
+\definecolor{Qpurple}{cmyk}{0.75, 1.00, 0.00, 0.00}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set the Beamer theme to use the Queen's University colours
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamercolor{frametitle}{fg=Qred}
+\setbeamercolor{title}{fg=black}
+\setbeamercolor{author}{fg=gray}
+\setbeamercolor{date}{fg=gray}
+\setbeamercolor{institute}{fg=gray}
+\setbeamercolor{date in head/foot}{fg=gray}
+\setbeamercolor{institute in head/foot}{fg=gray}
+\setbeamercolor{section in toc}{fg=Qblue}
+\setbeamercolor{caption name}{fg=Qblue}
+
+% Set the enumerate colors
+\setbeamercolor*{enumerate item}{fg=Qblue}
+\setbeamercolor*{enumerate subitem}{fg=Qgold}
+\setbeamercolor*{enumerate subsubitem}{fg=Qred}
+
+% Set the bullet point colors and shapes
+\setbeamertemplate{itemize item}{\color{Qblue}$\blacktriangleright$}
+\setbeamertemplate{itemize subitem}{\color{Qgold}$\blacktriangleright$}
+\setbeamertemplate{itemize subsubitem}{\color{Qred}$\blacktriangleright$}
+
+% Set the alert block colors
+\setbeamercolor{block title alerted}{fg=white, bg=Qred}
+\setbeamercolor{block body alerted}{fg=black, bg=Qred!10!white}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set the Footer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{institute in head/foot}%
+    \usebeamerfont{institute in head/foot}\insertshortinstitute
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+  \end{beamercolorbox}}%
+  \vskip2pt%
+}

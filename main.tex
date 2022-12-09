@@ -1,0 +1,61 @@
+% Set the aspect reation for your laptop screen.
+% Beamer support the main ratios used on computers today.
+% The template files in ./template support 16x10, 16x9, and 4x3
+% Those templates can easily be modified for other ratios
+% Please set the ratio here without the `x`
+\def\aspectratio{1610}
+
+\documentclass[aspectratio=\aspectratio]{beamer}
+
+\usepackage{preamble}
+\usepackage{queensu}
+
+% Set the title of the presentation
+\title[Short Title]{Long Title}
+
+% Set Author text size and their names
+\setbeamerfont{author}{size=\small}
+\author[Authors Short]{Authors Long}
+
+\setbeamerfont{institue}{size=\tiny}
+\institute[Research Group Short]
+{
+  Research Group Long \\
+  Department \\
+  Queen’s University, Canada
+}
+
+% This says date but can be used for confrence name
+\setbeamerfont{date}{size=\small}
+\date[Confrence Short]
+{
+  23\textsuperscript{rd} Confrence Name Long \\
+  Confrence Date
+}
+
+\begin{document}
+
+    % Leave this here to create the title page
+    \queensutitlepage
+
+    % This creates the table of contents
+    \begin{frame}
+        \frametitle{Outline}
+        \tableofcontents
+    \end{frame}
+
+    % Create a section for everthing you want to include in the table of
+    % contents. Then create your frames in the ./tex/ folder
+    \section{Bullet Points}
+    \input{tex/bullet_points_example.tex}
+
+    \section{Enumerate}
+    \input{tex/enumerate_example.tex}
+
+    \section{Two Column Example}
+    \input{tex/two_column_example.tex}
+
+    \section{Beamer Blocks}
+    \input{tex/beamer_blocks_example.tex}
+
+\end{document}
