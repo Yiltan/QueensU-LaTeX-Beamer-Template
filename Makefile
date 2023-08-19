@@ -6,7 +6,7 @@ FILE=main
 PDF=$(OUT_DIR)/$(shell ls out/ | grep pdf)
 
 make : $(FILE).tex
-	latexmk -pdf -outdir=$(OUT_DIR) -r .latexmkrc $(FILE).tex
+	latexmk -pdf -outdir=$(OUT_DIR) $(FILE).tex
 	rm -f missfont.log
 
 clean :
